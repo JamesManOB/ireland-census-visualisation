@@ -1,0 +1,289 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "params": [
+    {
+      "name": "citSel",
+      "select": {
+        "type": "point",
+        "fields": [
+          "citizenship"
+        ],
+        "on": "click",
+        "clear": "dblclick"
+      }
+    }
+  ],
+  "vconcat": [
+    {
+      "hconcat": [
+        {
+          "width": 340,
+          "height": 260,
+          "data": {
+            "url": "recent_immigrants_by_citizenship.csv"
+          },
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "y": {
+              "field": "citizenship",
+              "type": "nominal",
+              "sort": {
+                "field": "count",
+                "order": "descending"
+              },
+              "axis": {
+                "title": null
+              }
+            },
+            "x": {
+              "field": "count",
+              "type": "quantitative",
+              "title": "Recent immigrants"
+            },
+            "color": {
+              "condition": {
+                "param": "citSel",
+                "value": "#4C78A8"
+              },
+              "value": "#D3D3D3"
+            },
+            "tooltip": [
+              {
+                "field": "citizenship",
+                "type": "nominal"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "format": ","
+              }
+            ]
+          },
+          "title": "Recent immigrants by citizenship"
+        },
+        {
+          "width": 340,
+          "height": 260,
+          "data": {
+            "url": "recent_immigrants_age_by_citizenship.csv"
+          },
+          "transform": [
+            {
+              "filter": {
+                "param": "citSel"
+              }
+            }
+          ],
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "y": {
+              "field": "citizenship",
+              "type": "nominal",
+              "axis": {
+                "title": null
+              }
+            },
+            "x": {
+              "field": "pct_within_citizenship",
+              "type": "quantitative",
+              "axis": {
+                "format": ".0%"
+              },
+              "title": "Age composition"
+            },
+            "color": {
+              "field": "age_group",
+              "type": "nominal",
+              "title": "Age group"
+            },
+            "tooltip": [
+              {
+                "field": "citizenship",
+                "type": "nominal"
+              },
+              {
+                "field": "age_group",
+                "type": "nominal"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "format": ","
+              },
+              {
+                "field": "pct_within_citizenship",
+                "type": "quantitative",
+                "format": ".1%"
+              }
+            ]
+          },
+          "title": "Age profile by citizenship"
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "width": 340,
+          "height": 260,
+          "data": {
+            "url": "recent_immigrants_housing_tenure.csv"
+          },
+          "transform": [
+            {
+              "filter": {
+                "param": "citSel"
+              }
+            }
+          ],
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "y": {
+              "field": "citizenship",
+              "type": "nominal",
+              "axis": {
+                "title": null
+              }
+            },
+            "x": {
+              "field": "pct_within_citizenship",
+              "type": "quantitative",
+              "axis": {
+                "format": ".0%"
+              },
+              "title": "Housing tenure composition"
+            },
+            "color": {
+              "field": "occupancy_type",
+              "type": "nominal",
+              "title": "Occupancy type"
+            },
+            "tooltip": [
+              {
+                "field": "citizenship",
+                "type": "nominal"
+              },
+              {
+                "field": "occupancy_type",
+                "type": "nominal"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "format": ","
+              },
+              {
+                "field": "pct_within_citizenship",
+                "type": "quantitative",
+                "format": ".1%"
+              }
+            ]
+          },
+          "title": "Housing tenure by citizenship"
+        },
+        {
+          "width": 340,
+          "height": 260,
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "national_avg": 273
+                  }
+                ]
+              },
+              "mark": {
+                "type": "rule",
+                "strokeDash": [
+                  4,
+                  4
+                ]
+              },
+              "encoding": {
+                "x": {
+                  "field": "national_avg",
+                  "type": "quantitative"
+                }
+              }
+            },
+            {
+              "data": {
+                "url": "recent_immigrants_rent_by_citizenship.csv"
+              },
+              "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 100
+              },
+              "encoding": {
+                "y": {
+                  "field": "citizenship",
+                  "type": "nominal",
+                  "sort": {
+                    "field": "avg_weekly_rent",
+                    "order": "descending"
+                  },
+                  "axis": {
+                    "title": null
+                  }
+                },
+                "x": {
+                  "field": "avg_weekly_rent",
+                  "type": "quantitative",
+                  "title": "Average weekly rent (€)"
+                },
+                "color": {
+                  "condition": {
+                    "param": "citSel",
+                    "value": "#E45756"
+                  },
+                  "value": "#A0A0A0"
+                },
+                "tooltip": [
+                  {
+                    "field": "citizenship",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "landlord_type",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "avg_weekly_rent",
+                    "type": "quantitative",
+                    "format": ".0f"
+                  }
+                ]
+              }
+            }
+          ],
+          "title": "Average weekly rent by citizenship"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    }
+  },
+  "title": {
+    "text": "Who is moving to Ireland, and what housing outcomes do they face?",
+    "subtitle": "Recent immigrants by citizenship, age, housing tenure and rent using Census 2022 data"
+  }
+}

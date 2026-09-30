@@ -1,0 +1,101 @@
+citizenship,age_group,count,pct_within_citizenship
+Brazil,1 - 14 years,246,0.0524632118
+Brazil,15 - 19 years,183,0.039027511
+Brazil,20 - 24 years,714,0.1522712732
+Brazil,25 - 29 years,1420,0.3028364257
+Brazil,30 - 34 years,1074,0.2290467051
+Brazil,35 - 44 years,790,0.1684794199
+Brazil,45 - 54 years,168,0.035828535
+Brazil,55 - 64 years,78,0.0166346769
+Brazil,65 - 74 years,12,0.002559181
+Brazil,75 years and over,4,0.00085306
+India,1 - 14 years,1983,0.1871990937
+India,15 - 19 years,207,0.019541206
+India,20 - 24 years,1150,0.1085622581
+India,25 - 29 years,2706,0.2554517134
+India,30 - 34 years,2386,0.2252430851
+India,35 - 44 years,1841,0.1737940149
+India,45 - 54 years,197,0.0185971868
+India,55 - 64 years,80,0.007552157
+India,65 - 74 years,32,0.003020863
+India,75 years and over,11,0.001038422
+Ireland,1 - 14 years,3176,0.1434702082
+Ireland,15 - 19 years,758,0.034241315
+Ireland,20 - 24 years,2095,0.094637936
+Ireland,25 - 29 years,3834,0.1731941998
+Ireland,30 - 34 years,3409,0.153995573
+Ireland,35 - 44 years,3859,0.1743235307
+Ireland,45 - 54 years,1949,0.088042644
+Ireland,55 - 64 years,1427,0.064462213
+Ireland,65 - 74 years,872,0.039391065
+Ireland,75 years and over,758,0.034241315
+Other America,1 - 14 years,189,0.06134372
+Other America,15 - 19 years,178,0.05777345
+Other America,20 - 24 years,522,0.1694255112
+Other America,25 - 29 years,908,0.2947095099
+Other America,30 - 34 years,667,0.2164881532
+Other America,35 - 44 years,449,0.1457319052
+Other America,45 - 54 years,98,0.031807855
+Other America,55 - 64 years,40,0.0129827978
+Other America,65 - 74 years,18,0.005842259
+Other America,75 years and over,12,0.003894839
+Other Asia,1 - 14 years,893,0.1664802386
+Other Asia,15 - 19 years,512,0.095451156
+Other Asia,20 - 24 years,712,0.1327367636
+Other Asia,25 - 29 years,1025,0.1910887397
+Other Asia,30 - 34 years,974,0.1815809098
+Other Asia,35 - 44 years,873,0.1627516779
+Other Asia,45 - 54 years,232,0.043251305
+Other Asia,55 - 64 years,90,0.0167785235
+Other Asia,65 - 74 years,40,0.007457122
+Other Asia,75 years and over,13,0.002423565
+Other EU27 ,1 - 14 years,480,0.099112121
+Other EU27 ,15 - 19 years,258,0.0532727648
+Other EU27 ,20 - 24 years,855,0.1765434648
+Other EU27 ,25 - 29 years,1075,0.2219698534
+Other EU27 ,30 - 34 years,712,0.1470163122
+Other EU27 ,35 - 44 years,859,0.1773693991
+Other EU27 ,45 - 54 years,417,0.086103655
+Other EU27 ,55 - 64 years,128,0.0264298988
+Other EU27 ,65 - 74 years,39,0.00805286
+Other EU27 ,75 years and over,20,0.004129672
+Romania,1 - 14 years,349,0.1142015707
+Romania,15 - 19 years,190,0.062172775
+Romania,20 - 24 years,526,0.1721204188
+Romania,25 - 29 years,489,0.160013089
+Romania,30 - 34 years,415,0.1357984293
+Romania,35 - 44 years,521,0.1704842932
+Romania,45 - 54 years,387,0.1266361257
+Romania,55 - 64 years,123,0.040248691
+Romania,65 - 74 years,42,0.013743455
+Romania,75 years and over,14,0.004581152
+Spain,1 - 14 years,335,0.080258745
+Spain,15 - 19 years,357,0.085529468
+Spain,20 - 24 years,1321,0.3164829899
+Spain,25 - 29 years,1103,0.2642549114
+Spain,30 - 34 years,413,0.098945855
+Spain,35 - 44 years,345,0.082654528
+Spain,45 - 54 years,225,0.053905127
+Spain,55 - 64 years,45,0.0107810254
+Spain,65 - 74 years,18,0.00431241
+Spain,75 years and over,12,0.00287494
+Ukraine,1 - 14 years,1185,0.2870639535
+Ukraine,15 - 19 years,336,0.081395349
+Ukraine,20 - 24 years,301,0.072916667
+Ukraine,25 - 29 years,344,0.083333333
+Ukraine,30 - 34 years,421,0.1019864341
+Ukraine,35 - 44 years,828,0.2005813953
+Ukraine,45 - 54 years,343,0.083091085
+Ukraine,55 - 64 years,196,0.04748062
+Ukraine,65 - 74 years,129,0.03125
+Ukraine,75 years and over,45,0.0109011628
+United Kingdom (GB+NI),1 - 14 years,584,0.1571582347
+United Kingdom (GB+NI),15 - 19 years,107,0.0287944026
+United Kingdom (GB+NI),20 - 24 years,350,0.094187298
+United Kingdom (GB+NI),25 - 29 years,472,0.1270182992
+United Kingdom (GB+NI),30 - 34 years,423,0.1138320775
+United Kingdom (GB+NI),35 - 44 years,554,0.1490850377
+United Kingdom (GB+NI),45 - 54 years,438,0.117868676
+United Kingdom (GB+NI),55 - 64 years,426,0.1146393972
+United Kingdom (GB+NI),65 - 74 years,235,0.063240043
+United Kingdom (GB+NI),75 years and over,127,0.0341765339

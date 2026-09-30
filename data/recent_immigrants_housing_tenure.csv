@@ -1,0 +1,61 @@
+citizenship,occupancy_type,count,pct_within_citizenship
+Brazil,Owner occupied,49,0.0478983382
+Brazil,Private rented,876,0.8563049853
+Brazil,Local authority rented,40,0.0391006843
+Brazil,Voluntary body rented,15,0.014662757
+Brazil,Free of rent,8,0.007820137
+Brazil,Not stated,35,0.034213099
+India,Owner occupied,123,0.044228695
+India,Private rented,2442,0.8781014024
+India,Local authority rented,66,0.0237324703
+India,Voluntary body rented,55,0.0197770586
+India,Free of rent,11,0.003955412
+India,Not stated,84,0.0302049622
+Ireland,Owner occupied,3051,0.4627635371
+Ireland,Private rented,2771,0.4202942515
+Ireland,Local authority rented,181,0.02745336
+Ireland,Voluntary body rented,53,0.008038829
+Ireland,Free of rent,407,0.06173214
+Ireland,Not stated,130,0.0197178826
+Other America,Owner occupied,53,0.075391181
+Other America,Private rented,586,0.833570413
+Other America,Local authority rented,10,0.014224751
+Other America,Voluntary body rented,7,0.009957326
+Other America,Free of rent,13,0.018492176
+Other America,Not stated,34,0.048364154
+Other Asia,Owner occupied,81,0.066339066
+Other Asia,Private rented,952,0.7796887797
+Other Asia,Local authority rented,49,0.04013104
+Other Asia,Voluntary body rented,21,0.017199017
+Other Asia,Free of rent,58,0.047502048
+Other Asia,Not stated,60,0.049140049
+Other EU27 ,Owner occupied,92,0.060726073
+Other EU27 ,Private rented,1268,0.836963696
+Other EU27 ,Local authority rented,37,0.024422442
+Other EU27 ,Voluntary body rented,25,0.01650165
+Other EU27 ,Free of rent,37,0.024422442
+Other EU27 ,Not stated,56,0.0369636964
+Romania,Owner occupied,40,0.0625
+Romania,Private rented,486,0.759375
+Romania,Local authority rented,22,0.034375
+Romania,Voluntary body rented,7,0.0109375
+Romania,Free of rent,38,0.059375
+Romania,Not stated,47,0.0734375
+Spain,Owner occupied,57,0.055393586
+Spain,Private rented,880,0.8551992225
+Spain,Local authority rented,16,0.0155490768
+Spain,Voluntary body rented,17,0.016520894
+Spain,Free of rent,20,0.019436346
+Spain,Not stated,39,0.0379008746
+Ukraine,Owner occupied,41,0.1265432099
+Ukraine,Private rented,91,0.2808641975
+Ukraine,Local authority rented,5,0.0154320988
+Ukraine,Voluntary body rented,3,0.009259259
+Ukraine,Free of rent,76,0.2345679012
+Ukraine,Not stated,108,0.3333333333
+United Kingdom (GB+NI),Owner occupied,443,0.3896218118
+United Kingdom (GB+NI),Private rented,615,0.5408970976
+United Kingdom (GB+NI),Local authority rented,5,0.004397537
+United Kingdom (GB+NI),Voluntary body rented,8,0.00703606
+United Kingdom (GB+NI),Free of rent,44,0.038698329
+United Kingdom (GB+NI),Not stated,22,0.0193491645

@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ireland Census Visualisation | James McClatchie</title>
+  <style>body { margin: 24px; font-family: system-ui, sans-serif; } #vis { overflow-x: auto; }</style>
+  <script src="https://cdn.jsdelivr.net/npm/vega@6.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.1.0"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Who is moving to Ireland, and what housing outcomes do they face?",
+    "subtitle": "Recent immigrants by citizenship, age, housing tenure and rent using Census 2022 data"
+  },
+  "params": [
+    {
+      "name": "citizenshipParam",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "name": "Citizenship: ",
+        "options": [
+          "All",
+          "Ireland",
+          "India",
+          "Other Asia",
+          "Other EU27 ",
+          "Brazil",
+          "Spain",
+          "Ukraine",
+          "United Kingdom (GB+NI)",
+          "Other America",
+          "Romania"
+        ]
+      }
+    }
+  ],
+  "vconcat": [
+    {
+      "hconcat": [
+        {
+          "width": 340,
+          "height": 260,
+          "data": {
+            "values": [
+              {
+                "citizenship": "Ireland",
+                "count": 22137,
+                "rank": 1
+              },
+              {
+                "citizenship": "India",
+                "count": 10593,
+                "rank": 2
+              },
+              {
+                "citizenship": "Other Asia",
+                "count": 5364,
+                "rank": 3
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "count": 4843,
+                "rank": 4
+              },
+              {
+                "citizenship": "Brazil",
+                "count": 4689,
+                "rank": 5
+              },
+              {
+                "citizenship": "Spain",
+                "count": 4174,
+                "rank": 6
+              },
+              {
+                "citizenship": "Ukraine",
+                "count": 4128,
+                "rank": 7
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "count": 3716,
+                "rank": 8
+              },
+              {
+                "citizenship": "Other America",
+                "count": 3081,
+                "rank": 9
+              },
+              {
+                "citizenship": "Romania",
+                "count": 3056,
+                "rank": 10
+              }
+            ]
+          },
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "y": {
+              "field": "citizenship",
+              "type": "nominal",
+              "sort": {
+                "field": "count",
+                "order": "descending"
+              },
+              "axis": {
+                "title": null
+              }
+            },
+            "x": {
+              "field": "count",
+              "type": "quantitative",
+              "title": "Recent immigrants"
+            },
+            "color": {
+              "condition": {
+                "test": "citizenshipParam == 'All' || datum.citizenship == citizenshipParam",
+                "value": "#4C78A8"
+              },
+              "value": "#D3D3D3"
+            },
+            "tooltip": [
+              {
+                "field": "citizenship",
+                "type": "nominal"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "format": ","
+              }
+            ]
+          },
+          "title": "Recent immigrants by citizenship (top 10)"
+        },
+        {
+          "width": 340,
+          "height": 260,
+          "data": {
+            "values": [
+              {
+                "citizenship": "Brazil",
+                "age_group": "1 - 14 years",
+                "count": 246,
+                "pct_within_citizenship": 0.0524632118
+              },
+              {
+                "citizenship": "Brazil",
+                "age_group": "15 - 19 years",
+                "count": 183,
+                "pct_within_citizenship": 0.039027511
+              },
+              {
+                "citizenship": "Brazil",
+                "age_group": "20 - 24 years",
+                "count": 714,
+                "pct_within_citizenship": 0.1522712732
+              },
+              {
+                "citizenship": "Brazil",
+                "age_group": "25 - 29 years",
+                "count": 1420,
+                "pct_within_citizenship": 0.3028364257
+              },
+              {
+                "citizenship": "Brazil",
+                "age_group": "30 - 34 years",
+                "count": 1074,
+                "pct_within_citizenship": 0.2290467051
+              },
+              {
+                "citizenship": "Brazil",
+                "age_group": "35 - 44 years",
+                "count": 790,
+                "pct_within_citizenship": 0.1684794199
+              },
+              {
+                "citizenship": "Brazil",
+                "age_group": "45 - 54 years",
+                "count": 168,
+                "pct_within_citizenship": 0.035828535
+              },
+              {
+                "citizenship": "Brazil",
+                "age_group": "55 - 64 years",
+                "count": 78,
+                "pct_within_citizenship": 0.0166346769
+              },
+              {
+                "citizenship": "Brazil",
+                "age_group": "65 - 74 years",
+                "count": 12,
+                "pct_within_citizenship": 0.002559181
+              },
+              {
+                "citizenship": "Brazil",
+                "age_group": "75 years and over",
+                "count": 4,
+                "pct_within_citizenship": 0.00085306
+              },
+              {
+                "citizenship": "India",
+                "age_group": "1 - 14 years",
+                "count": 1983,
+                "pct_within_citizenship": 0.1871990937
+              },
+              {
+                "citizenship": "India",
+                "age_group": "15 - 19 years",
+                "count": 207,
+                "pct_within_citizenship": 0.019541206
+              },
+              {
+                "citizenship": "India",
+                "age_group": "20 - 24 years",
+                "count": 1150,
+                "pct_within_citizenship": 0.1085622581
+              },
+              {
+                "citizenship": "India",
+                "age_group": "25 - 29 years",
+                "count": 2706,
+                "pct_within_citizenship": 0.2554517134
+              },
+              {
+                "citizenship": "India",
+                "age_group": "30 - 34 years",
+                "count": 2386,
+                "pct_within_citizenship": 0.2252430851
+              },
+              {
+                "citizenship": "India",
+                "age_group": "35 - 44 years",
+                "count": 1841,
+                "pct_within_citizenship": 0.1737940149
+              },
+              {
+                "citizenship": "India",
+                "age_group": "45 - 54 years",
+                "count": 197,
+                "pct_within_citizenship": 0.0185971868
+              },
+              {
+                "citizenship": "India",
+                "age_group": "55 - 64 years",
+                "count": 80,
+                "pct_within_citizenship": 0.007552157
+              },
+              {
+                "citizenship": "India",
+                "age_group": "65 - 74 years",
+                "count": 32,
+                "pct_within_citizenship": 0.003020863
+              },
+              {
+                "citizenship": "India",
+                "age_group": "75 years and over",
+                "count": 11,
+                "pct_within_citizenship": 0.001038422
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "1 - 14 years",
+                "count": 3176,
+                "pct_within_citizenship": 0.1434702082
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "15 - 19 years",
+                "count": 758,
+                "pct_within_citizenship": 0.034241315
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "20 - 24 years",
+                "count": 2095,
+                "pct_within_citizenship": 0.094637936
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "25 - 29 years",
+                "count": 3834,
+                "pct_within_citizenship": 0.1731941998
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "30 - 34 years",
+                "count": 3409,
+                "pct_within_citizenship": 0.153995573
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "35 - 44 years",
+                "count": 3859,
+                "pct_within_citizenship": 0.1743235307
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "45 - 54 years",
+                "count": 1949,
+                "pct_within_citizenship": 0.088042644
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "55 - 64 years",
+                "count": 1427,
+                "pct_within_citizenship": 0.064462213
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "65 - 74 years",
+                "count": 872,
+                "pct_within_citizenship": 0.039391065
+              },
+              {
+                "citizenship": "Ireland",
+                "age_group": "75 years and over",
+                "count": 758,
+                "pct_within_citizenship": 0.034241315
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "1 - 14 years",
+                "count": 189,
+                "pct_within_citizenship": 0.06134372
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "15 - 19 years",
+                "count": 178,
+                "pct_within_citizenship": 0.05777345
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "20 - 24 years",
+                "count": 522,
+                "pct_within_citizenship": 0.1694255112
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "25 - 29 years",
+                "count": 908,
+                "pct_within_citizenship": 0.2947095099
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "30 - 34 years",
+                "count": 667,
+                "pct_within_citizenship": 0.2164881532
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "35 - 44 years",
+                "count": 449,
+                "pct_within_citizenship": 0.1457319052
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "45 - 54 years",
+                "count": 98,
+                "pct_within_citizenship": 0.031807855
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "55 - 64 years",
+                "count": 40,
+                "pct_within_citizenship": 0.0129827978
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "65 - 74 years",
+                "count": 18,
+                "pct_within_citizenship": 0.005842259
+              },
+              {
+                "citizenship": "Other America",
+                "age_group": "75 years and over",
+                "count": 12,
+                "pct_within_citizenship": 0.003894839
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "1 - 14 years",
+                "count": 893,
+                "pct_within_citizenship": 0.1664802386
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "15 - 19 years",
+                "count": 512,
+                "pct_within_citizenship": 0.095451156
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "20 - 24 years",
+                "count": 712,
+                "pct_within_citizenship": 0.1327367636
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "25 - 29 years",
+                "count": 1025,
+                "pct_within_citizenship": 0.1910887397
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "30 - 34 years",
+                "count": 974,
+                "pct_within_citizenship": 0.1815809098
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "35 - 44 years",
+                "count": 873,
+                "pct_within_citizenship": 0.1627516779
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "45 - 54 years",
+                "count": 232,
+                "pct_within_citizenship": 0.043251305
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "55 - 64 years",
+                "count": 90,
+                "pct_within_citizenship": 0.0167785235
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "65 - 74 years",
+                "count": 40,
+                "pct_within_citizenship": 0.007457122
+              },
+              {
+                "citizenship": "Other Asia",
+                "age_group": "75 years and over",
+                "count": 13,
+                "pct_within_citizenship": 0.002423565
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "1 - 14 years",
+                "count": 480,
+                "pct_within_citizenship": 0.099112121
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "15 - 19 years",
+                "count": 258,
+                "pct_within_citizenship": 0.0532727648
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "20 - 24 years",
+                "count": 855,
+                "pct_within_citizenship": 0.1765434648
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "25 - 29 years",
+                "count": 1075,
+                "pct_within_citizenship": 0.2219698534
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "30 - 34 years",
+                "count": 712,
+                "pct_within_citizenship": 0.1470163122
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "35 - 44 years",
+                "count": 859,
+                "pct_within_citizenship": 0.1773693991
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "45 - 54 years",
+                "count": 417,
+                "pct_within_citizenship": 0.086103655
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "55 - 64 years",
+                "count": 128,
+                "pct_within_citizenship": 0.0264298988
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "65 - 74 years",
+                "count": 39,
+                "pct_within_citizenship": 0.00805286
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "age_group": "75 years and over",
+                "count": 20,
+                "pct_within_citizenship": 0.004129672
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "1 - 14 years",
+                "count": 349,
+                "pct_within_citizenship": 0.1142015707
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "15 - 19 years",
+                "count": 190,
+                "pct_within_citizenship": 0.062172775
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "20 - 24 years",
+                "count": 526,
+                "pct_within_citizenship": 0.1721204188
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "25 - 29 years",
+                "count": 489,
+                "pct_within_citizenship": 0.160013089
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "30 - 34 years",
+                "count": 415,
+                "pct_within_citizenship": 0.1357984293
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "35 - 44 years",
+                "count": 521,
+                "pct_within_citizenship": 0.1704842932
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "45 - 54 years",
+                "count": 387,
+                "pct_within_citizenship": 0.1266361257
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "55 - 64 years",
+                "count": 123,
+                "pct_within_citizenship": 0.040248691
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "65 - 74 years",
+                "count": 42,
+                "pct_within_citizenship": 0.013743455
+              },
+              {
+                "citizenship": "Romania",
+                "age_group": "75 years and over",
+                "count": 14,
+                "pct_within_citizenship": 0.004581152
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "1 - 14 years",
+                "count": 335,
+                "pct_within_citizenship": 0.080258745
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "15 - 19 years",
+                "count": 357,
+                "pct_within_citizenship": 0.085529468
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "20 - 24 years",
+                "count": 1321,
+                "pct_within_citizenship": 0.3164829899
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "25 - 29 years",
+                "count": 1103,
+                "pct_within_citizenship": 0.2642549114
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "30 - 34 years",
+                "count": 413,
+                "pct_within_citizenship": 0.098945855
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "35 - 44 years",
+                "count": 345,
+                "pct_within_citizenship": 0.082654528
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "45 - 54 years",
+                "count": 225,
+                "pct_within_citizenship": 0.053905127
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "55 - 64 years",
+                "count": 45,
+                "pct_within_citizenship": 0.0107810254
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "65 - 74 years",
+                "count": 18,
+                "pct_within_citizenship": 0.00431241
+              },
+              {
+                "citizenship": "Spain",
+                "age_group": "75 years and over",
+                "count": 12,
+                "pct_within_citizenship": 0.00287494
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "1 - 14 years",
+                "count": 1185,
+                "pct_within_citizenship": 0.2870639535
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "15 - 19 years",
+                "count": 336,
+                "pct_within_citizenship": 0.081395349
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "20 - 24 years",
+                "count": 301,
+                "pct_within_citizenship": 0.072916667
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "25 - 29 years",
+                "count": 344,
+                "pct_within_citizenship": 0.083333333
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "30 - 34 years",
+                "count": 421,
+                "pct_within_citizenship": 0.1019864341
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "35 - 44 years",
+                "count": 828,
+                "pct_within_citizenship": 0.2005813953
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "45 - 54 years",
+                "count": 343,
+                "pct_within_citizenship": 0.083091085
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "55 - 64 years",
+                "count": 196,
+                "pct_within_citizenship": 0.04748062
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "65 - 74 years",
+                "count": 129,
+                "pct_within_citizenship": 0.03125
+              },
+              {
+                "citizenship": "Ukraine",
+                "age_group": "75 years and over",
+                "count": 45,
+                "pct_within_citizenship": 0.0109011628
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "1 - 14 years",
+                "count": 584,
+                "pct_within_citizenship": 0.1571582347
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "15 - 19 years",
+                "count": 107,
+                "pct_within_citizenship": 0.0287944026
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "20 - 24 years",
+                "count": 350,
+                "pct_within_citizenship": 0.094187298
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "25 - 29 years",
+                "count": 472,
+                "pct_within_citizenship": 0.1270182992
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "30 - 34 years",
+                "count": 423,
+                "pct_within_citizenship": 0.1138320775
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "35 - 44 years",
+                "count": 554,
+                "pct_within_citizenship": 0.1490850377
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "45 - 54 years",
+                "count": 438,
+                "pct_within_citizenship": 0.117868676
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "55 - 64 years",
+                "count": 426,
+                "pct_within_citizenship": 0.1146393972
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "65 - 74 years",
+                "count": 235,
+                "pct_within_citizenship": 0.063240043
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "age_group": "75 years and over",
+                "count": 127,
+                "pct_within_citizenship": 0.0341765339
+              }
+            ]
+          },
+          "transform": [
+            {
+              "filter": "citizenshipParam == 'All' || datum.citizenship == citizenshipParam"
+            }
+          ],
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "y": {
+              "field": "citizenship",
+              "type": "nominal",
+              "sort": [
+                "Ireland",
+                "India",
+                "Other Asia",
+                "Other EU27 ",
+                "Brazil",
+                "Spain",
+                "Ukraine",
+                "United Kingdom (GB+NI)",
+                "Other America",
+                "Romania"
+              ],
+              "axis": {
+                "title": null
+              }
+            },
+            "x": {
+              "field": "pct_within_citizenship",
+              "type": "quantitative",
+              "stack": "zero",
+              "axis": {
+                "format": ".0%"
+              },
+              "title": "Age composition"
+            },
+            "color": {
+              "field": "age_group",
+              "type": "nominal",
+              "title": "Age group",
+              "sort": [
+                "1 - 14 years",
+                "15 - 19 years",
+                "20 - 24 years",
+                "25 - 29 years",
+                "30 - 34 years",
+                "35 - 44 years",
+                "45 - 54 years",
+                "55 - 64 years",
+                "65 - 74 years",
+                "75 years and over"
+              ]
+            },
+            "tooltip": [
+              {
+                "field": "citizenship",
+                "type": "nominal"
+              },
+              {
+                "field": "age_group",
+                "type": "nominal"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "format": ","
+              },
+              {
+                "field": "pct_within_citizenship",
+                "type": "quantitative",
+                "format": ".1%"
+              }
+            ]
+          },
+          "title": "Age profile by citizenship"
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "width": 340,
+          "height": 260,
+          "data": {
+            "values": [
+              {
+                "citizenship": "Brazil",
+                "occupancy_type": "Owner occupied",
+                "count": 49,
+                "pct_within_citizenship": 0.0478983382
+              },
+              {
+                "citizenship": "Brazil",
+                "occupancy_type": "Private rented",
+                "count": 876,
+                "pct_within_citizenship": 0.8563049853
+              },
+              {
+                "citizenship": "Brazil",
+                "occupancy_type": "Local authority rented",
+                "count": 40,
+                "pct_within_citizenship": 0.0391006843
+              },
+              {
+                "citizenship": "Brazil",
+                "occupancy_type": "Voluntary body rented",
+                "count": 15,
+                "pct_within_citizenship": 0.014662757
+              },
+              {
+                "citizenship": "Brazil",
+                "occupancy_type": "Free of rent",
+                "count": 8,
+                "pct_within_citizenship": 0.007820137
+              },
+              {
+                "citizenship": "Brazil",
+                "occupancy_type": "Not stated",
+                "count": 35,
+                "pct_within_citizenship": 0.034213099
+              },
+              {
+                "citizenship": "India",
+                "occupancy_type": "Owner occupied",
+                "count": 123,
+                "pct_within_citizenship": 0.044228695
+              },
+              {
+                "citizenship": "India",
+                "occupancy_type": "Private rented",
+                "count": 2442,
+                "pct_within_citizenship": 0.8781014024
+              },
+              {
+                "citizenship": "India",
+                "occupancy_type": "Local authority rented",
+                "count": 66,
+                "pct_within_citizenship": 0.0237324703
+              },
+              {
+                "citizenship": "India",
+                "occupancy_type": "Voluntary body rented",
+                "count": 55,
+                "pct_within_citizenship": 0.0197770586
+              },
+              {
+                "citizenship": "India",
+                "occupancy_type": "Free of rent",
+                "count": 11,
+                "pct_within_citizenship": 0.003955412
+              },
+              {
+                "citizenship": "India",
+                "occupancy_type": "Not stated",
+                "count": 84,
+                "pct_within_citizenship": 0.0302049622
+              },
+              {
+                "citizenship": "Ireland",
+                "occupancy_type": "Owner occupied",
+                "count": 3051,
+                "pct_within_citizenship": 0.4627635371
+              },
+              {
+                "citizenship": "Ireland",
+                "occupancy_type": "Private rented",
+                "count": 2771,
+                "pct_within_citizenship": 0.4202942515
+              },
+              {
+                "citizenship": "Ireland",
+                "occupancy_type": "Local authority rented",
+                "count": 181,
+                "pct_within_citizenship": 0.02745336
+              },
+              {
+                "citizenship": "Ireland",
+                "occupancy_type": "Voluntary body rented",
+                "count": 53,
+                "pct_within_citizenship": 0.008038829
+              },
+              {
+                "citizenship": "Ireland",
+                "occupancy_type": "Free of rent",
+                "count": 407,
+                "pct_within_citizenship": 0.06173214
+              },
+              {
+                "citizenship": "Ireland",
+                "occupancy_type": "Not stated",
+                "count": 130,
+                "pct_within_citizenship": 0.0197178826
+              },
+              {
+                "citizenship": "Other America",
+                "occupancy_type": "Owner occupied",
+                "count": 53,
+                "pct_within_citizenship": 0.075391181
+              },
+              {
+                "citizenship": "Other America",
+                "occupancy_type": "Private rented",
+                "count": 586,
+                "pct_within_citizenship": 0.833570413
+              },
+              {
+                "citizenship": "Other America",
+                "occupancy_type": "Local authority rented",
+                "count": 10,
+                "pct_within_citizenship": 0.014224751
+              },
+              {
+                "citizenship": "Other America",
+                "occupancy_type": "Voluntary body rented",
+                "count": 7,
+                "pct_within_citizenship": 0.009957326
+              },
+              {
+                "citizenship": "Other America",
+                "occupancy_type": "Free of rent",
+                "count": 13,
+                "pct_within_citizenship": 0.018492176
+              },
+              {
+                "citizenship": "Other America",
+                "occupancy_type": "Not stated",
+                "count": 34,
+                "pct_within_citizenship": 0.048364154
+              },
+              {
+                "citizenship": "Other Asia",
+                "occupancy_type": "Owner occupied",
+                "count": 81,
+                "pct_within_citizenship": 0.066339066
+              },
+              {
+                "citizenship": "Other Asia",
+                "occupancy_type": "Private rented",
+                "count": 952,
+                "pct_within_citizenship": 0.7796887797
+              },
+              {
+                "citizenship": "Other Asia",
+                "occupancy_type": "Local authority rented",
+                "count": 49,
+                "pct_within_citizenship": 0.04013104
+              },
+              {
+                "citizenship": "Other Asia",
+                "occupancy_type": "Voluntary body rented",
+                "count": 21,
+                "pct_within_citizenship": 0.017199017
+              },
+              {
+                "citizenship": "Other Asia",
+                "occupancy_type": "Free of rent",
+                "count": 58,
+                "pct_within_citizenship": 0.047502048
+              },
+              {
+                "citizenship": "Other Asia",
+                "occupancy_type": "Not stated",
+                "count": 60,
+                "pct_within_citizenship": 0.049140049
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "occupancy_type": "Owner occupied",
+                "count": 92,
+                "pct_within_citizenship": 0.060726073
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "occupancy_type": "Private rented",
+                "count": 1268,
+                "pct_within_citizenship": 0.836963696
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "occupancy_type": "Local authority rented",
+                "count": 37,
+                "pct_within_citizenship": 0.024422442
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "occupancy_type": "Voluntary body rented",
+                "count": 25,
+                "pct_within_citizenship": 0.01650165
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "occupancy_type": "Free of rent",
+                "count": 37,
+                "pct_within_citizenship": 0.024422442
+              },
+              {
+                "citizenship": "Other EU27 ",
+                "occupancy_type": "Not stated",
+                "count": 56,
+                "pct_within_citizenship": 0.0369636964
+              },
+              {
+                "citizenship": "Romania",
+                "occupancy_type": "Owner occupied",
+                "count": 40,
+                "pct_within_citizenship": 0.0625
+              },
+              {
+                "citizenship": "Romania",
+                "occupancy_type": "Private rented",
+                "count": 486,
+                "pct_within_citizenship": 0.759375
+              },
+              {
+                "citizenship": "Romania",
+                "occupancy_type": "Local authority rented",
+                "count": 22,
+                "pct_within_citizenship": 0.034375
+              },
+              {
+                "citizenship": "Romania",
+                "occupancy_type": "Voluntary body rented",
+                "count": 7,
+                "pct_within_citizenship": 0.0109375
+              },
+              {
+                "citizenship": "Romania",
+                "occupancy_type": "Free of rent",
+                "count": 38,
+                "pct_within_citizenship": 0.059375
+              },
+              {
+                "citizenship": "Romania",
+                "occupancy_type": "Not stated",
+                "count": 47,
+                "pct_within_citizenship": 0.0734375
+              },
+              {
+                "citizenship": "Spain",
+                "occupancy_type": "Owner occupied",
+                "count": 57,
+                "pct_within_citizenship": 0.055393586
+              },
+              {
+                "citizenship": "Spain",
+                "occupancy_type": "Private rented",
+                "count": 880,
+                "pct_within_citizenship": 0.8551992225
+              },
+              {
+                "citizenship": "Spain",
+                "occupancy_type": "Local authority rented",
+                "count": 16,
+                "pct_within_citizenship": 0.0155490768
+              },
+              {
+                "citizenship": "Spain",
+                "occupancy_type": "Voluntary body rented",
+                "count": 17,
+                "pct_within_citizenship": 0.016520894
+              },
+              {
+                "citizenship": "Spain",
+                "occupancy_type": "Free of rent",
+                "count": 20,
+                "pct_within_citizenship": 0.019436346
+              },
+              {
+                "citizenship": "Spain",
+                "occupancy_type": "Not stated",
+                "count": 39,
+                "pct_within_citizenship": 0.0379008746
+              },
+              {
+                "citizenship": "Ukraine",
+                "occupancy_type": "Owner occupied",
+                "count": 41,
+                "pct_within_citizenship": 0.1265432099
+              },
+              {
+                "citizenship": "Ukraine",
+                "occupancy_type": "Private rented",
+                "count": 91,
+                "pct_within_citizenship": 0.2808641975
+              },
+              {
+                "citizenship": "Ukraine",
+                "occupancy_type": "Local authority rented",
+                "count": 5,
+                "pct_within_citizenship": 0.0154320988
+              },
+              {
+                "citizenship": "Ukraine",
+                "occupancy_type": "Voluntary body rented",
+                "count": 3,
+                "pct_within_citizenship": 0.009259259
+              },
+              {
+                "citizenship": "Ukraine",
+                "occupancy_type": "Free of rent",
+                "count": 76,
+                "pct_within_citizenship": 0.2345679012
+              },
+              {
+                "citizenship": "Ukraine",
+                "occupancy_type": "Not stated",
+                "count": 108,
+                "pct_within_citizenship": 0.3333333333
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "occupancy_type": "Owner occupied",
+                "count": 443,
+                "pct_within_citizenship": 0.3896218118
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "occupancy_type": "Private rented",
+                "count": 615,
+                "pct_within_citizenship": 0.5408970976
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "occupancy_type": "Local authority rented",
+                "count": 5,
+                "pct_within_citizenship": 0.004397537
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "occupancy_type": "Voluntary body rented",
+                "count": 8,
+                "pct_within_citizenship": 0.00703606
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "occupancy_type": "Free of rent",
+                "count": 44,
+                "pct_within_citizenship": 0.038698329
+              },
+              {
+                "citizenship": "United Kingdom (GB+NI)",
+                "occupancy_type": "Not stated",
+                "count": 22,
+                "pct_within_citizenship": 0.0193491645
+              }
+            ]
+          },
+          "transform": [
+            {
+              "filter": "citizenshipParam == 'All' || datum.citizenship == citizenshipParam"
+            }
+          ],
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "y": {
+              "field": "citizenship",
+              "type": "nominal",
+              "sort": [
+                "Ireland",
+                "India",
+                "Other Asia",
+                "Other EU27 ",
+                "Brazil",
+                "Spain",
+                "Ukraine",
+                "United Kingdom (GB+NI)",
+                "Other America",
+                "Romania"
+              ],
+              "axis": {
+                "title": null
+              }
+            },
+            "x": {
+              "field": "pct_within_citizenship",
+              "type": "quantitative",
+              "stack": "zero",
+              "axis": {
+                "format": ".0%"
+              },
+              "title": "Housing tenure composition"
+            },
+            "color": {
+              "field": "occupancy_type",
+              "type": "nominal",
+              "title": "Occupancy type",
+              "sort": [
+                "Owner occupied",
+                "Private rented",
+                "Local authority rented",
+                "Voluntary body rented",
+                "Free of rent",
+                "Not stated"
+              ]
+            },
+            "tooltip": [
+              {
+                "field": "citizenship",
+                "type": "nominal"
+              },
+              {
+                "field": "occupancy_type",
+                "type": "nominal"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "format": ","
+              },
+              {
+                "field": "pct_within_citizenship",
+                "type": "quantitative",
+                "format": ".1%"
+              }
+            ]
+          },
+          "title": "Housing tenure by citizenship"
+        },
+        {
+          "width": 340,
+          "height": 260,
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "national_avg": 273
+                  }
+                ]
+              },
+              "mark": {
+                "type": "rule",
+                "strokeDash": [
+                  4,
+                  4
+                ]
+              },
+              "encoding": {
+                "x": {
+                  "field": "national_avg",
+                  "type": "quantitative"
+                }
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "citizenship": "Other America",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 420.3
+                  },
+                  {
+                    "citizenship": "United Kingdom (GB+NI)",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 406
+                  },
+                  {
+                    "citizenship": "Other Asia",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 378.65
+                  },
+                  {
+                    "citizenship": "Spain",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 373.21
+                  },
+                  {
+                    "citizenship": "Ireland",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 360.1
+                  },
+                  {
+                    "citizenship": "Brazil",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 358.57
+                  },
+                  {
+                    "citizenship": "Other EU27 ",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 357.52
+                  },
+                  {
+                    "citizenship": "India",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 336.85
+                  },
+                  {
+                    "citizenship": "Romania",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 297.47
+                  },
+                  {
+                    "citizenship": "Ukraine",
+                    "landlord_type": "Rented from private landlord",
+                    "avg_weekly_rent": 283.85
+                  }
+                ]
+              },
+              "transform": [
+                {
+                  "filter": "citizenshipParam == 'All' || datum.citizenship == citizenshipParam"
+                }
+              ],
+              "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 100
+              },
+              "encoding": {
+                "y": {
+                  "field": "citizenship",
+                  "type": "nominal",
+                  "sort": {
+                    "field": "avg_weekly_rent",
+                    "order": "descending"
+                  },
+                  "axis": {
+                    "title": null
+                  }
+                },
+                "x": {
+                  "field": "avg_weekly_rent",
+                  "type": "quantitative",
+                  "title": "Average weekly rent (€)"
+                },
+                "color": {
+                  "condition": {
+                    "test": "citizenshipParam == 'All' || datum.citizenship == citizenshipParam",
+                    "value": "#E45756"
+                  },
+                  "value": "#A0A0A0"
+                },
+                "tooltip": [
+                  {
+                    "field": "citizenship",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "landlord_type",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "avg_weekly_rent",
+                    "type": "quantitative",
+                    "format": ".2f"
+                  }
+                ]
+              }
+            }
+          ],
+          "title": "Average weekly rent by citizenship"
+        }
+      ]
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    }
+  }
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
