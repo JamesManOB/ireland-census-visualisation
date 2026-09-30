@@ -30,19 +30,6 @@ The dashboard supports descriptive comparison. Its panels should not be interpre
 
 Citizenship means the census citizenship category, not birthplace. In particular, **Ireland** identifies Irish citizenship; it does not automatically identify people born in Ireland.
 
-## Run locally
-
-Download the repository and open `index.html` in a browser. The data is embedded, but an internet connection is needed to load the Vega libraries from jsDelivr.
-
-Alternatively, serve the folder locally:
-
-```bash
-git clone https://github.com/JamesManOB/ireland-census-visualisation.git
-cd ireland-census-visualisation
-python -m http.server 8000
-```
-
-Open <http://localhost:8000>. GitHub's file viewer displays HTML source; it does not run the dashboard.
 
 To edit the visualisation, open `specs/dashboard.vl.json` in the [Vega Editor](https://vega.github.io/editor/), or edit it locally and rebuild:
 
